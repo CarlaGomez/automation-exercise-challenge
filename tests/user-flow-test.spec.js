@@ -39,7 +39,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('User flow tests', () => {
     
-  test('User flow: Purchase a Product', async () => {
+  test('TC-001 User flow: Purchase a Product', async () => {
     await productsPage.goToProductsSection();
     await productsPage.goToProductDetails('3'); // Enter the index of the product you want to view
     await productsPage.enterProductQuantity();
