@@ -14,16 +14,41 @@ This project focuses on automating a given user flow using Playwright. The deliv
 
 - **Testing Features**: Rich built-in features such as automatic waiting, cross-browser testing, and support for modern web applications. Usually web pages like this one require hovers, removing ad blocks, interacting with custom UI components like dropdowns, checkboxes, sliders, iframes, etc, and in the end Playwright offers more built-in capabilities and better handling of those interactions (luckily advanced interactions were not needed, but is worth it to look ahead).
 
-    Additionally, Playwright’s cross-browser testing support was a critical factor in my decision. It allows testing across multiple browsers, including mobile-specific ones like Safari for iOS, whereas Cypress is        limited to desktop Chromium-based browsers and can only simulate mobile viewports. This simulation does not trigger actual touch events, which can be a limitation when testing mobile-specific behaviors.
+  Additionally, Playwright’s cross-browser testing support and the easy configuration for testing in a mobile viewport were an important factor in my decision. It allows testing across multiple browsers, including mobile-specific ones like Safari for iOS, whereas Cypress is limited to desktop Chromium-based browsers and can only simulate mobile viewports. This simulation does not trigger actual touch events, which can be a limitation when testing mobile-specific behaviors.
 
-- **Context:** Cypress and Playwright are both simple in terms of syntax and configuration, what made me go for Playwright at the end was the fact that Playwright is a more QA-oriented framework than Cypress, Cypress regularly is more Front-end dev-oriented, although for this test both could be easily applied.
+- **Finally:** Cypress and Playwright are both simple in terms of syntax and configuration, what made me go for Playwright at the end was the fact that Playwright is a more QA-oriented framework than Cypress, Cypress regularly is more Front-end dev-oriented, although for this test both could be easily applied.
 
 ## Test Case Design
 
 ### Test Case Document 
 #### **TC-001 User Flow: Purchase a product** 
 
+**Preconditions:** 
+- The website is accessible. 
+- The user is not logged in. 
+- A valid product list is displayed.
 
+| **Step** | **Expected Result** |
+|----------|---------------------|
+| Navigate to the website. | The website loads successfully. |
+| Go to the products page by clicking on the menu's option. | The user is redirected to the products page and sees a list of products. |
+| Click on the View Product button inside the third product of the list. | The third product's details page is displayed with correct information. |
+| Enter the quatity of products to purchase | The quantity is correctly inputted into the quantity field. |
+| Add the product to the cart. | A modal is displayed saying that the product was added to the cart successfully. |
+| Go to the cart by clicking the View Cart option inside the modal. | The user is redirected to the cart and sees the product and all its information (product name, quantity, price, total amount). |
+| Click on Proceed to Checkout. | the user is prompted to either register or login. |
+| Click on the Register/Login option inside the modal. | The user is redirected to the login page. |
+| Inside the login page, fill the name and email of the signup form and click on Signup. | The user is redirected to a longer form to enter its information. |
+| Fill all the fields with valid data and click on Create Account| The account is sucessfully created and the user is automatically logged in. |
+
+**Optional Steps**
+| **Step** | **Expected Result** |
+|----------|---------------------|
+| Go to the cart by clicking on the menu's option. | The user is redirected to the cart and sees the product and all its information (product name, quantity, price, total amount). |
+| Click on Proceed to Checkout. | the user is redirected  to the checkout and sees the addresses and the product with all its information (product name, quantity, price, total amount). |
+| Click on Proceed to Place Order. | the user is redirected  to the payment page. |
+| Fill the credit/debit card fields with valid information and click on Pay and Confirm order. | The purchase is sucessfully completed. |
+| Click on Logout | The user is logged out of the account successfully. |
 
 ## Tools and technologies
 - Playwright
