@@ -48,7 +48,7 @@ This project focuses on automating a given user flow using Playwright. The deliv
 | Click on Proceed to Checkout. | the user is redirected  to the checkout and sees the addresses and the product with all its information (product name, quantity, price, total amount). |
 | Click on Proceed to Place Order. | the user is redirected  to the payment page. |
 | Fill the credit/debit card fields with valid information and click on Pay and Confirm order. | The purchase is sucessfully completed. |
-| Click on Logout | The user is logged out of the account successfully. |
+| Click on Logout | The user is logged out of the account successfully and is redirected to the Login Page. |
 
 ## Tools and technologies
 - Playwright
@@ -75,13 +75,13 @@ This project focuses on automating a given user flow using Playwright. The deliv
    npm install
    ```
    or to install the same exact versions
-  ```sh
+   ```sh
    npm ci
    ```
 3. Run the tests: by default they are on headless mode, to launch the browsers open the playwright.config.js file and set headless: false.
 Type on the terminal:
-   ```sh
-    npm test
+    ```sh
+   npm test
    ```
 This will launch the Allure server by default aftet the tests run and the report will be visible.
 

@@ -1,15 +1,21 @@
+import SignupPage from './signup-page';
+const { expect } = require('@playwright/test');
+
 class Shared {
   /**
    * @param {import('@playwright/test').Page} page
    */
   constructor(page) {
     this.page = page;
+    this.signupPage = new SignupPage(page);
     this.menuSection = {
       productsOption: page.locator('a[href="/products"]'),
       cartOption: page.locator('a[href="/view_cart"]'),
+      logoutOption: page.locator('a[href="/logout"]'),
     };
   }
 
+  // Generate a random number between 1 and 20
   async generateRandomNumber() {
     return Math.floor(Math.random() * 20) + 1;
   }
@@ -30,6 +36,11 @@ class Shared {
 
   async goToCart() {
     await this.menuSection.cartOption.click();
+  }
+
+  async logout() {
+    await this.menuSection.logoutOption.click();
+    await expect(this.signupPage.loginPageTitle).toBeVisible();
   }
 }
 

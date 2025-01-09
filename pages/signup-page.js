@@ -27,6 +27,7 @@ class SignupPage {
     this.zipcodeInput = page.locator('[data-qa="zipcode"]');
     this.mobileNumberInput = page.locator('[data-qa="mobile_number"]');
     this.createAccountButton = page.locator('[data-qa="create-account"]');
+    this.loginPageTitle = page.getByText('Login to your account');
   }
 
   async createAccount(

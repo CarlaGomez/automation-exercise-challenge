@@ -37,9 +37,9 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test.describe('User flow test', () => {
+test.describe('User flow tests', () => {
     
-  test('User flow', async () => {
+  test('User flow: Purchase a Product', async () => {
     await productsPage.goToProductsSection();
     await productsPage.goToProductDetails('3'); // Enter the index of the product you want to view
     await productsPage.enterProductQuantity();
@@ -72,5 +72,6 @@ test.describe('User flow test', () => {
     await cartPage.goToCheckout();
     await checkoutPage.placeOrder();
     await checkoutPage.payOrder(cardName, cardNumber, cardCvc, '03', '30');
+    await shared.logout();
   });
 });
