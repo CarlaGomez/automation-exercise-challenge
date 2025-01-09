@@ -1,10 +1,14 @@
 const { test } = require('@playwright/test');
 import ProductsPage from '../pages/products-page';
+import Shared from '../pages/shared';
 
-let productsPage;
+let productsPage, shared;
 
 test.beforeEach(async ({ page }) => {
     productsPage = new ProductsPage(page);
+    shared = new Shared(page);
+
+    await shared.blockGoogleAds();
     await page.goto('/');
 })
 
