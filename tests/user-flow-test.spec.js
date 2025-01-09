@@ -38,6 +38,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('User flow test', () => {
+    
   test('User flow', async () => {
     await productsPage.goToProductsSection();
     await productsPage.goToProductDetails('3'); // Enter the index of the product you want to view
@@ -65,6 +66,8 @@ test.describe('User flow test', () => {
       zipcode,
       mobileNumber
     );
+
+    // Optional steps
     await shared.goToCart();
     await cartPage.goToCheckout();
     await checkoutPage.placeOrder();
