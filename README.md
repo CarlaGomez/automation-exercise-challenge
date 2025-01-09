@@ -73,7 +73,11 @@ This project focuses on automating a given user flow using Playwright. The deliv
    ```sh
    npm ci
    ```
-3. Run the tests: by default they are on headless mode, to launch the browsers open the playwright.config.js file and set headless: false.
+3. Install Playwright Browsers
+   ```sh
+   npx playwright install
+   ```
+4. Run the tests: by default they are on headless mode, to launch the browsers open the playwright.config.js file and set headless: false.
 
    The Web and Mobile viewports are configured in playwright.config.js
 
