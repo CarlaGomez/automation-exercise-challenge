@@ -6,6 +6,7 @@ class Shared {
     this.page = page;
     this.menuSection = {
       productsOption: page.locator('a[href="/products"]'),
+      cartOption: page.locator('a[href="/view_cart"]'),
     };
   }
 
@@ -25,6 +26,10 @@ class Shared {
         route.continue(); // Allow other requests
       }
     });
+  }
+
+  async goToCart() {
+    await this.menuSection.cartOption.click();
   }
 }
 
