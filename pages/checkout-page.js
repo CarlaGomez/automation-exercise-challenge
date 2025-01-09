@@ -17,6 +17,7 @@ class CheckoutPage {
   }
 
   async placeOrder() {
+    await this.placeOrderButton.waitFor('visible');
     await this.placeOrderButton.click();
   }
 
